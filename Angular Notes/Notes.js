@@ -31,6 +31,56 @@
     - [@Component] Decorator told angular. I am a Angular component insted of a simple typeScript file.
     - While creating a new Component which we need to add same in our app.module.ts
 
+  # Using InlineTemplate HTML or CSS
+    - For Using the Inline HTML and CSS we need to change below mentioned property in the component decorator.
+       templateUrl   -     template
+       styleUrls      -     style
+  
+  # Different ways to use component selectors
+    - Use of selector in different html element
+        selector: 'app-server'      -           <app-server></app-server>
+        selector: '[app-server]'    -           <div app-server></div>
+        selector: '.app-server'     -           <div class="app-server"></div>
+
+  # Data Binding (Communication b/w the typeScript and HTML)
+      # Output Data ( TS -> HTML )
+        - String Interpolation ({{data}})
+        - Property Binding ([property]="data")
+      # Input Data (HTML -> TS) 
+        - Event Binding ((event)="expression")
+      # Two Way DataBinding
+        - [(ngModel)] = "data"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
