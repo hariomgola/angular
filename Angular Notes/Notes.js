@@ -44,8 +44,8 @@
 
   # Data Binding (Communication b/w the typeScript and HTML)
       # Output Data ( TS -> HTML )
-        - String Interpolation ({{data}})
-        - Property Binding ([property]="data")
+        - String Interpolation ({{data}})              | variable type is changed to string
+        - Property Binding ([property]="data")         | variable type is maintained
       # Input Data (HTML -> TS) 
         - Event Binding ((event)="expression")
       # Two Way DataBinding
