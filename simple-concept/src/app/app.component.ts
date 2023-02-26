@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'simple-concept';
-  inputData='input-Text'
+  componentName = 'app root';
+  inputData = 'input-Text';
 }

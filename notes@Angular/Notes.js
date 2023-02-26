@@ -1,4 +1,19 @@
 /**
+  # Angular Concept
+    - Basic (binding and structure)
+    - Component and DataBindings
+    - Directives
+    - Services & Dependency Injection
+    - Routing
+    - Observables
+    - Forms
+    - Pipes
+    - Http
+    - Authentication
+    - Optimization & NgModules
+    - Deployment
+    - Animation & Testing
+    
   # Angular Different Version
     - Angular (Angular 1) have issue with performance for big application and it also termed as angular
     - Angular 2 - Released in 2016 and have many advantage over the orgional angular js

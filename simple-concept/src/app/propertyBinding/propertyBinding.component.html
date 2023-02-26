@@ -1,0 +1,12 @@
+<!-- String Interpolation -->
+<div>Component - {{ componentName }}</div>
+<!-- PropertyBinding -->
+<div>
+  <button [disabled]="!isSetProperty">Check Button</button>
+  <p [innerText]="isSetProperty"></p>
+</div>
+<!-- Event Binding -->
+<div>
+  <button (click)="onButtonClick()">Event Message</button>
+  <p>{{ displayMessage }}</p>
+</div>
