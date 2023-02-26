@@ -5,9 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 // custom created component
 import { PropertyBindingComponent } from './propertyBinding/propertyBinding.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 @NgModule({
-  declarations: [AppComponent, PropertyBindingComponent],
+  declarations: [AppComponent, PropertyBindingComponent, DirectivesComponent],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
