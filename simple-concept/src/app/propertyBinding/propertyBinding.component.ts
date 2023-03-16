@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'property-binding',
   templateUrl: './propertyBinding.component.html',
   styleUrls: ['./propertyBinding.component.css'],
 })
-export class PropertyBindingComponent {
+export class PropertyBindingComponent implements OnInit {
   constructor() {
     let timeTimer = setTimeout(() => {
       console.warn('>> Now the button will enable');

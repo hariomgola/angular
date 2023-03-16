@@ -66,6 +66,23 @@
       # Two Way DataBinding
         - [(ngModel)] = "data"
 
+  # Directives in Angular
+    - Directives are instruction giving to the DOM.
+    - Component are also a kind of directives since we are giving instruction to DOM.
+    # custome Directives
+      - Will going to use in later section
+    # Example of custom directives
+    --- TypeScript
+      @Directive({
+        selector:'[appTurnGreen]'
+      })
+      export class TurnGreenDirectives{
+      }
+    --- HTML
+    <p appTurnGreen> Text is in Green color </p>
+    # Build in Directives
+      - *ngIf
+      - *ngFor
 
 
 
