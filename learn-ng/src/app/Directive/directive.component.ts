@@ -5,3 +5,7 @@ import { Component } from '@angular/core';
   styles: [],
 })
 export class DirectiveComponent {}
+
+// @Directive({
+//   selector: '[appTurnGreen]',
+// })

@@ -111,6 +111,17 @@ const Directives = () => `
 # Build in Directives
   - *ngIf
   - *ngFor
+
+# *ngif
+ - Used to conditional view the tag on behalf of condition passed
+ - *ngIf="condition"
+# *ngIf-else
+ - Used to conditional view the if and else tag work simpilar to programming if else
+ - *ngIF="condition; else template_name"
+ - ngStyle and ngClass also work on same manner.
+
+# *ngFor
+
 `;
 
 module.exports = {

@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class NgIfElseComponent {
   componentHeader = '*ng if Else condition';
+  textBoxInputValue = '';
 }
