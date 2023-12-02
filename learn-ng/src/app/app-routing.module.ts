@@ -1,10 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+// Main component
+import { ErrorComponent } from './error/error.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
+// Routing component
+import { NgIfComponent } from './Directive/ng-if/ng-if.component';
+import { NgIfElseComponent } from './Directive/ng-if-else/ng-if-else.component';
+import { NgSwitchComponent } from './Directive/ng-switch/ng-switch.component';
+import { NgForComponent } from './Directive/ng-for/ng-for.component';
+
+const routes: Routes = [
+  // core functionality
+  { path: '', component: LandingPageComponent },
+  {
+    path: 'ng-if',
+    component: NgIfComponent,
+  },
+  {
+    path: 'ng-if-else',
+    component: NgIfElseComponent,
+  },
+  {
+    path: 'ng-switch',
+    component: NgSwitchComponent,
+  },
+  {
+    path: 'ng-for',
+    component: NgForComponent,
+  },
+  {
+    path: '**',
+    component: ErrorComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
