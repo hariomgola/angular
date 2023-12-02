@@ -2,7 +2,13 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-two-way-binding',
-  templateUrl: './two-way-binding.component.html',
+  template: `
+    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <input type="text" [(ngModel)]="textBoxValue" />
+      <p>{{ textBoxValue }}</p>
+    </ng-container>
+  `,
   styles: [],
 })
 export class TwoWayBindingComponent {

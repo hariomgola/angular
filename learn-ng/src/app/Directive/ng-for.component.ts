@@ -2,7 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-ng-for',
-  templateUrl: './ng-for.component.html',
+  template: `
+    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <div *ngFor="let prgLanguage of programmingLanguage; index as i">
+        {{ prgLanguage.type }}
+      </div>
+    </ng-container>
+  `,
   styles: [],
 })
 export class NgForComponent {

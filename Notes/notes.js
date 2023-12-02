@@ -119,9 +119,15 @@ const Directives = () => `
  - Used to conditional view the if and else tag work simpilar to programming if else
  - *ngIF="condition; else template_name"
  - ngStyle and ngClass also work on same manner.
-
 # *ngFor
+ - Used to iterate throught the list or an arrray
+ - *ngFor="let item of Items; index as i"
+`;
 
+const componentInteraction = () => `
+# Component interaction
+ - @Input(): To pass the value from child component to parent component.
+ - @Output(): To pass the value from child component to parent component.
 `;
 
 module.exports = {
@@ -130,4 +136,5 @@ module.exports = {
   "Component Introcuction": ComponentIntrocuction,
   "Data Binding": DataBinding,
   Directives: Directives,
+  "Component Interaction": componentInteraction,
 };

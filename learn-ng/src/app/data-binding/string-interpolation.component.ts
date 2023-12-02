@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-string-interpolation',
-  templateUrl: './string-interpolation.component.html',
+  template: `
+    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <p>{{ componentHeader }}</p>
+    </ng-container>
+  `,
   styles: [],
 })
 export class StringInterpolationComponent {

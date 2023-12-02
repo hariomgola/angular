@@ -6,15 +6,16 @@ import { ErrorComponent } from './error/error.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 // Routing component
-import { DirectiveComponent } from './Directive/directive.component';
-import { NgIfComponent } from './Directive/ng-if/ng-if.component';
-import { NgIfElseComponent } from './Directive/ng-if-else/ng-if-else.component';
-import { NgSwitchComponent } from './Directive/ng-switch/ng-switch.component';
-import { NgForComponent } from './Directive/ng-for/ng-for.component';
-import { StringInterpolationComponent } from './data-binding/string-interpolation/string-interpolation.component';
-import { PropertyBindingComponent } from './data-binding/property-binding/property-binding.component';
-import { EventBindingComponent } from './data-binding/event-binding/event-binding.component';
-import { TwoWayBindingComponent } from './data-binding/two-way-binding/two-way-binding.component';
+import { NgIfComponent } from './Directive/ng-if.component';
+import { NgIfElseComponent } from './Directive/ng-if-else.component';
+import { NgSwitchComponent } from './Directive/ng-switch.component';
+import { NgForComponent } from './Directive/ng-for.component';
+
+// Data binding component
+import { PropertyBindingComponent } from './data-binding/property-binding.component';
+import { EventBindingComponent } from './data-binding/event-binding.component';
+import { TwoWayBindingComponent } from './data-binding/two-way-binding.component';
+import { StringInterpolationComponent } from './data-binding/string-interpolation.component';
 
 const landingPage = [{ path: '', component: LandingPageComponent }];
 const errorPage = [
