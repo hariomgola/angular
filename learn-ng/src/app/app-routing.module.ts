@@ -6,14 +6,32 @@ import { ErrorComponent } from './error/error.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 // Routing component
+import { DirectiveComponent } from './Directive/directive.component';
 import { NgIfComponent } from './Directive/ng-if/ng-if.component';
 import { NgIfElseComponent } from './Directive/ng-if-else/ng-if-else.component';
 import { NgSwitchComponent } from './Directive/ng-switch/ng-switch.component';
 import { NgForComponent } from './Directive/ng-for/ng-for.component';
+import { StringInterpolationComponent } from './data-binding/string-interpolation/string-interpolation.component';
+import { PropertyBindingComponent } from './data-binding/property-binding/property-binding.component';
 
-const routes: Routes = [
-  // core functionality
-  { path: '', component: LandingPageComponent },
+const landingPage = [{ path: '', component: LandingPageComponent }];
+const errorPage = [
+  {
+    path: '**',
+    component: ErrorComponent,
+  },
+];
+const propertyBindingRoute = [
+  {
+    path: 'string-interpolation',
+    component: StringInterpolationComponent,
+  },
+  {
+    path: 'propertyBinding',
+    component: PropertyBindingComponent,
+  },
+];
+const directivesRoute = [
   {
     path: 'ng-if',
     component: NgIfComponent,
@@ -30,10 +48,13 @@ const routes: Routes = [
     path: 'ng-for',
     component: NgForComponent,
   },
-  {
-    path: '**',
-    component: ErrorComponent,
-  },
+];
+
+const routes: Routes = [
+  ...landingPage,
+  ...propertyBindingRoute,
+  ...directivesRoute,
+  ...errorPage,
 ];
 
 @NgModule({

@@ -40,6 +40,9 @@ const AngularArchitecture = () => `
         |_ main.ts                  (main.ts file contains menthod to bootstrap into the app.module.ts)
           |_ app.module.ts          (Contains all the bootstrap component array to renederde)
             |_ app.component.ts     (Contains the dependency for the component which going to be rendered)
+
+ # Notes
+   - @component, @Ngmodule is a decorater that will define the predefine functionality in angular
 `;
 
 const ComponentIntrocuction = () => `
@@ -64,13 +67,38 @@ const ComponentIntrocuction = () => `
 
 const DataBinding = () => `
 # Data Binding (Communication b/w the typeScript and HTML)
-    # Output Data ( TS -> HTML )
-      - String Interpolation ({{data}})              | variable type is changed to string
-      - Property Binding ([property]="data")         | variable type is maintained
-    # Input Data (HTML -> TS) 
-      - Event Binding ((event)="expression")
-    # Two Way DataBinding
-      - [(ngModel)] = "data"
+  # Output Data ( TS -> HTML )
+    - String Interpolation ({{data}})              | variable type is changed to string
+    - Property Binding ([property]="data")         | variable type is maintained
+  # Input Data (HTML -> TS) 
+    - Event Binding ((event)="expression")
+  # Two Way DataBinding
+    - [(ngModel)] = "data"
+
+# String Interpolation
+  
+
+  
+`;
+
+const Directives = () => `
+# Directives in Angular
+  - Directives are instruction giving to the DOM.
+  - Component are also a kind of directives since we are giving instruction to DOM.
+# custome Directives
+  - Will going to use in later section
+# Example of custom directives
+--- TypeScript
+  @Directive({
+    selector:'[appTurnGreen]'
+  })
+  export class TurnGreenDirectives{
+  }
+--- HTML
+<p appTurnGreen> Text is in Green color </p>
+# Build in Directives
+  - *ngIf
+  - *ngFor
 `;
 
 module.exports = {
