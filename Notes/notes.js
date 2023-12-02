@@ -75,10 +75,22 @@ const DataBinding = () => `
   # Two Way DataBinding
     - [(ngModel)] = "data"
 
-# String Interpolation
-  
+# String Interpolation - {{}}
+  - String interpolation is used to pass data from component file to html file.
+  - String interpolation can only be able to output the string value only.
+  - String interpolation will convert all value into string while passing it to the html file.
 
-  
+# Property Binding - []
+  - Property binding is used to pass data from component file to html file.
+  - Property binding can pass the data as it is. if value is boolean it will pass the boolean data only.
+
+# Event Binding - ()
+  - Event Binding is used to pass data from html file to component file
+  - In event binding we have special symbol $event to provide value of target for same.
+
+# Two way Binding - [(ngModel)]
+  - Two way binging is used to pass interconnect the data within the html and ts file
+  - It can be used with anytype of value and also used to disable the field as well as print someinput.
 `;
 
 const Directives = () => `
@@ -106,4 +118,5 @@ module.exports = {
   "Angular Architecture": AngularArchitecture,
   "Component Introcuction": ComponentIntrocuction,
   "Data Binding": DataBinding,
+  Directives: Directives,
 };

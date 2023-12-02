@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './string-interpolation.component.html',
   styles: [],
 })
-export class StringInterpolationComponent {}
+export class StringInterpolationComponent {
+  componentHeader = 'String Interpolation';
+}
