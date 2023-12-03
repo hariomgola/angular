@@ -9,8 +9,8 @@ import { AppComponent } from './app.component';
 import { TwoWayBindingComponent } from './data-binding/two-way-binding.component';
 import { NgIfComponent } from './Directive/ng-if.component';
 import { NgIfElseComponent } from './Directive/ng-if-else.component';
-import { ChildCompComponent } from './component-interaction/child-comp/child-comp.component';
-import { ParentCompComponent } from './component-interaction/parent-comp/parent-comp.component';
+import { ParentCompComponent } from './component-interaction/parent-comp.component';
+import { ChildCompComponent } from './component-interaction/child-comp.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +18,8 @@ import { ParentCompComponent } from './component-interaction/parent-comp/parent-
     TwoWayBindingComponent,
     NgIfComponent,
     NgIfElseComponent,
-    ChildCompComponent,
     ParentCompComponent,
+    ChildCompComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

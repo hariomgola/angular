@@ -16,6 +16,7 @@ import { PropertyBindingComponent } from './data-binding/property-binding.compon
 import { EventBindingComponent } from './data-binding/event-binding.component';
 import { TwoWayBindingComponent } from './data-binding/two-way-binding.component';
 import { StringInterpolationComponent } from './data-binding/string-interpolation.component';
+import { ParentCompComponent } from './component-interaction/parent-comp.component';
 
 const landingPage = [{ path: '', component: LandingPageComponent }];
 const errorPage = [
@@ -57,11 +58,18 @@ const directivesRoute = [
     component: NgForComponent,
   },
 ];
+const componentInteraction = [
+  {
+    path: 'comp-interaction',
+    component: ParentCompComponent,
+  },
+];
 
 const routes: Routes = [
   ...landingPage,
   ...propertyBindingRoute,
   ...directivesRoute,
+  ...componentInteraction,
   ...errorPage,
 ];
 
