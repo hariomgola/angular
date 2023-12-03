@@ -130,6 +130,11 @@ const componentInteraction = () => `
  - @Output(): To pass the value from child component to parent component.
 `;
 
+const RoutingInAngular = () =>`
+# Routing in Angular
+ - 
+`
+
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
   "Angular Architecture": AngularArchitecture,

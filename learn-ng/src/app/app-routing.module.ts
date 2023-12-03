@@ -16,7 +16,14 @@ import { PropertyBindingComponent } from './data-binding/property-binding.compon
 import { EventBindingComponent } from './data-binding/event-binding.component';
 import { TwoWayBindingComponent } from './data-binding/two-way-binding.component';
 import { StringInterpolationComponent } from './data-binding/string-interpolation.component';
+
+// Component communication
 import { ParentCompComponent } from './component-interaction/parent-comp.component';
+import { ChildCompComponent } from './component-interaction/child-comp.component';
+
+// Routing Componet
+import { RoutingParentComponent } from './Routing/routing-parent.component';
+import { RoutingChildComponent } from './Routing/routing-child.component';
 
 const landingPage = [{ path: '', component: LandingPageComponent }];
 const errorPage = [
@@ -64,12 +71,23 @@ const componentInteraction = [
     component: ParentCompComponent,
   },
 ];
+const RoutingComponent = [
+  {
+    path: 'routing',
+    component: RoutingParentComponent,
+  },
+  {
+    path: 'routing/:name',
+    component: RoutingChildComponent,
+  },
+];
 
 const routes: Routes = [
   ...landingPage,
   ...propertyBindingRoute,
   ...directivesRoute,
   ...componentInteraction,
+  ...RoutingComponent,
   ...errorPage,
 ];
 
@@ -78,3 +96,20 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+// custom component declaration to pass in app.module.ts for dependencies
+export const ApplicationRoutingModule = [
+  LandingPageComponent,
+  NgIfComponent,
+  NgIfElseComponent,
+  NgSwitchComponent,
+  NgForComponent,
+  PropertyBindingComponent,
+  EventBindingComponent,
+  TwoWayBindingComponent,
+  StringInterpolationComponent,
+  ParentCompComponent,
+  ChildCompComponent,
+  RoutingParentComponent,
+  RoutingChildComponent,
+];
