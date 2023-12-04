@@ -9,12 +9,18 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
     </ng-container>
     <ng-container>
       <nav>
-        <a class="button" routerLink="/string-interpolation"
+        <a class="button" (click)="onNavigatingRoute('string-interpolation')"
           >string-interpolation</a
         >
-        <a class="button" routerLink="/propertyBinding">property-binding</a>
-        <a class="button" routerLink="/eventBinding">event-binding</a>
-        <a class="button" routerLink="/twoway-Binding">two-way Binding</a>
+        <a class="button" (click)="onNavigatingRoute('property-binding')"
+          >property-binding</a
+        >
+        <a class="button" (click)="onNavigatingRoute('event-binding')"
+          >event-binding</a
+        >
+        <a class="button" (click)="onNavigatingRoute('two-way-binding')"
+          >two-way Binding</a
+        >
       </nav>
     </ng-container>
     <router-outlet></router-outlet>
@@ -23,5 +29,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 })
 export class DataBindingComponent implements OnInit {
   componentHeader = 'Data Binding';
+  constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {}
+  onNavigatingRoute(data: string) {
+    this.router.navigate([`${data}`], { relativeTo: this.route });
+  }
 }

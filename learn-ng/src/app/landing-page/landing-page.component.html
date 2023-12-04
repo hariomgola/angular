@@ -1,12 +1,14 @@
 <ng-container>
   <div>
     <nav>
-      <a class="button" routerLink="/data-binding">data-binding</a>
-      <a class="button" routerLink="/directive">directive</a>
-      <a class="button" routerLink="/component-interaction"
+      <a class="button" (click)="onNavigatingRoute('data-binding')"
+        >data-binding</a
+      >
+      <a class="button" (click)="onNavigatingRoute('directive')">directive</a>
+      <a class="button" (click)="onNavigatingRoute('component-interaction')"
         >component interaction</a
       >
-      <a class="button" routerLink="/routing">routing</a>
+      <a class="button" (click)="onNavigatingRoute('routing')">routing</a>
     </nav>
   </div>
 </ng-container>

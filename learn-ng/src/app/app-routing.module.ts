@@ -51,7 +51,7 @@ const DataBindingRoutes = [
     path: 'event-binding',
     component: EventBindingComponent,
   },
-  { path: 'two-way-Binding', component: TwoWayBindingComponent },
+  { path: 'two-way-binding', component: TwoWayBindingComponent },
 ];
 const directivesRoute = [
   {

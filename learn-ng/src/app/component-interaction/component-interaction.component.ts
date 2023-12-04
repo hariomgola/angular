@@ -10,8 +10,12 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
     <ng-container>
       <div>
         <nav>
-          <a class="button" routerLink="/parent">parent component</a>
-          <a class="button" routerLink="/parent">child component</a>
+          <a class="button" (click)="onNavigatingRoute('parent')"
+            >parent component</a
+          >
+          <a class="button" (click)="onNavigatingRoute('child')"
+            >child component</a
+          >
         </nav>
       </div>
     </ng-container>
@@ -21,5 +25,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 })
 export class ComponentInteractionComponent implements OnInit {
   componentHeader = 'Component Interaction';
+  constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {}
+  onNavigatingRoute(data: string) {
+    this.router.navigate([`${data}`], { relativeTo: this.route });
+  }
 }

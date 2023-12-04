@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'routing',
   template: `
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
     </ng-container>
     <ng-container>
       <nav>
-        <a class="button" routerLink="/routing">routing</a>
+        <a class="button" (click)="onNavigatingRoute('routing')">routing</a>
       </nav>
     </ng-container>
     <router-outlet></router-outlet>
@@ -16,5 +17,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoutingComponent implements OnInit {
   componentHeader = 'Routing in Angular';
+  constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {}
+  onNavigatingRoute(data: string) {
+    this.router.navigate([`${data}`], { relativeTo: this.route });
+  }
 }
