@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-string-interpolation',
+  selector: 'string-interpolation',
   template: `
-    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <h5>{{ componentHeader }}</h5>
+    </ng-container>
     <ng-container>
       <p>{{ componentHeader }}</p>
     </ng-container>

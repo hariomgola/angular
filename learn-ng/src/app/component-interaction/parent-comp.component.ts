@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-parent-comp',
+  selector: 'parent-comp',
   template: `
-    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <h5>{{ componentHeader }}</h5>
+    </ng-container>
     <ng-container>
       <p>{{ dataFromChildComponent }}</p>
       <p>{{ _dataFromChildComponent }}</p>
     </ng-container>
     <ng-container>
-      <app-child-comp
+      <child-comp
         [masterData]="name"
         [Mdata]="privateName"
         (outputMasterData)="outputFunction($event)"
         (OmData)="outputPrivateFunction($event)"
-      ></app-child-comp>
+      ></child-comp>
     </ng-container>
   `,
   styles: [],

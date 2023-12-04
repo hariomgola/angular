@@ -5,6 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { ErrorComponent } from './error/error.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
+// Main Component
+import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
+import { DataBindingComponent } from './data-binding/data-binding.component';
+import { DirectiveComponent } from './Directive/directive.component';
+import { RoutingComponent } from './Routing/routing.component';
+
 // Routing component
 import { NgIfComponent } from './Directive/ng-if.component';
 import { NgIfElseComponent } from './Directive/ng-if-else.component';
@@ -32,20 +38,20 @@ const errorPage = [
     component: ErrorComponent,
   },
 ];
-const propertyBindingRoute = [
+const DataBindingRoutes = [
   {
     path: 'string-interpolation',
     component: StringInterpolationComponent,
   },
   {
-    path: 'propertyBinding',
+    path: 'property-binding',
     component: PropertyBindingComponent,
   },
   {
-    path: 'eventBinding',
+    path: 'event-binding',
     component: EventBindingComponent,
   },
-  { path: 'twoway-Binding', component: TwoWayBindingComponent },
+  { path: 'two-way-Binding', component: TwoWayBindingComponent },
 ];
 const directivesRoute = [
   {
@@ -65,13 +71,17 @@ const directivesRoute = [
     component: NgForComponent,
   },
 ];
-const componentInteraction = [
+const componentInteractionRoutes = [
   {
-    path: 'comp-interaction',
+    path: 'parent',
     component: ParentCompComponent,
   },
+  {
+    path: 'child',
+    component: ChildCompComponent,
+  },
 ];
-const RoutingComponent = [
+const RoutingComponentRoute = [
   {
     path: 'routing',
     component: RoutingParentComponent,
@@ -84,10 +94,26 @@ const RoutingComponent = [
 
 const routes: Routes = [
   ...landingPage,
-  ...propertyBindingRoute,
-  ...directivesRoute,
-  ...componentInteraction,
-  ...RoutingComponent,
+  {
+    path: 'data-binding',
+    component: DataBindingComponent,
+    children: DataBindingRoutes,
+  },
+  {
+    path: 'directive',
+    component: DirectiveComponent,
+    children: directivesRoute,
+  },
+  {
+    path: 'component-interaction',
+    component: ComponentInteractionComponent,
+    children: componentInteractionRoutes,
+  },
+  {
+    path: 'routing',
+    component: RoutingComponent,
+    children: RoutingComponentRoute,
+  },
   ...errorPage,
 ];
 
@@ -100,16 +126,20 @@ export class AppRoutingModule {}
 // custom component declaration to pass in app.module.ts for dependencies
 export const ApplicationRoutingModule = [
   LandingPageComponent,
+  DirectiveComponent,
   NgIfComponent,
   NgIfElseComponent,
   NgSwitchComponent,
   NgForComponent,
+  DataBindingComponent,
   PropertyBindingComponent,
   EventBindingComponent,
   TwoWayBindingComponent,
   StringInterpolationComponent,
+  ComponentInteractionComponent,
   ParentCompComponent,
   ChildCompComponent,
+  RoutingComponent,
   RoutingParentComponent,
   RoutingChildComponent,
 ];

@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 @Component({
   selector: 'app-routing-parent',
   template: `
     <ng-container>
-      <p>
-        {{ componentHeader }}
-      </p>
+      <h5>{{ componentHeader }}</h5>
     </ng-container>
     <ng-container>
       <div *ngFor="let lang of Language">
@@ -20,10 +18,13 @@ import { Router } from '@angular/router';
 export class RoutingParentComponent implements OnInit {
   componentHeader = 'Routing Module';
   Language = ['Java', 'Python', 'JavaScript', 'Angular', 'React'];
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {
     console.clear();
     console.log('|> Routing data - ', this.Language);
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      console.log('Coming from -->', params.get('name'));
+    });
   }
   onButtonClick(data: string) {
     console.log('--->', data);

@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-routing-child',
   template: `
     <ng-container>
-      <p>
-        {{ componentHeader }}
-      </p>
+      <h5>{{ componentHeader }}</h5>
     </ng-container>
     <ng-container>
       <h5>
@@ -17,6 +15,9 @@ import { ActivatedRoute } from '@angular/router';
         You have Selected {{ language }} language and Data is passed through
         Routing
       </h5>
+      <div>
+        <button (click)="goToPreviousComponent()">Back</button>
+      </div>
     </ng-container>
   `,
   styles: [],
@@ -24,8 +25,16 @@ import { ActivatedRoute } from '@angular/router';
 export class RoutingChildComponent implements OnInit {
   componentHeader = 'Routing Child component';
   language: string | null = '';
-  constructor(private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
   ngOnInit() {
-    this.language = this.route.snapshot.paramMap.get('name');
+    // simple mechanism
+    // this.language = this.route.snapshot.paramMap.get('name');
+    // observable mechanism
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.language = params.get('name');
+    });
+  }
+  goToPreviousComponent() {
+    this.router.navigate(['/routing', { name: this.language }]);
   }
 }

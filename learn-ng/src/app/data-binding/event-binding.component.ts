@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-event-binding',
+  selector: 'event-binding',
   template: `
-    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <h5>{{ componentHeader }}</h5>
+    </ng-container>
     <ng-container>
       <input type="text" (input)="onInputTextFunction($event)" />
       <button (click)="onButtonClick()">Event Binding</button>

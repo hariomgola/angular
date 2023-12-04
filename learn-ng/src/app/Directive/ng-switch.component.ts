@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ng-switch',
+  selector: 'ng-switch',
   template: `
     <ng-container>
-      <p>{{ componentHeader }}</p>
+      <h5>{{ componentHeader }}</h5>
     </ng-container>
     <ng-container>
       <!-- <div [ngSwitch]="inputValueData">

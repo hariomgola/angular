@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ng-for',
+  selector: 'ng-for',
   template: `
-    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <h5>{{ componentHeader }}</h5>
+    </ng-container>
     <ng-container>
       <div *ngFor="let prgLanguage of programmingLanguage; index as i">
         {{ prgLanguage.type }}

@@ -8,9 +8,11 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-child-comp',
+  selector: 'child-comp',
   template: `
-    <p>{{ componentHeader }}</p>
+    <ng-container>
+      <h5>{{ componentHeader }}</h5>
+    </ng-container>
     <ng-container>
       <div>
         <p>{{ masterData }}</p>

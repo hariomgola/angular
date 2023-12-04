@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-ng-if-else',
+  selector: 'ng-if-else',
   template: `
-    <p>{{ componentHeader }}</p>
-    <br />
+    <ng-container>
+      <h5>{{ componentHeader }}</h5>
+    </ng-container>
     <ng-container>
       <p *ngIf="textBoxInputValue == ''; else valueAddedField">
         Please Write something in text box
