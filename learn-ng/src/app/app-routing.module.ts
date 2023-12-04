@@ -110,7 +110,7 @@ const routes: Routes = [
     children: componentInteractionRoutes,
   },
   {
-    path: 'routing',
+    path: 'route',
     component: RoutingComponent,
     children: RoutingComponentRoute,
   },

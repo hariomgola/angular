@@ -35,6 +35,9 @@ export class RoutingChildComponent implements OnInit {
     });
   }
   goToPreviousComponent() {
-    this.router.navigate(['/routing', { name: this.language }]);
+    // this.router.navigate(['/routing', { name: this.language }]);
+    this.router.navigate(['../', { name: this.language }], {
+      relativeTo: this.route,
+    });
   }
 }

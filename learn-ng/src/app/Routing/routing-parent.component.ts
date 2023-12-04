@@ -28,6 +28,7 @@ export class RoutingParentComponent implements OnInit {
   }
   onButtonClick(data: string) {
     console.log('--->', data);
-    this.router.navigate(['/routing', data]);
+    // this.router.navigate(['/routing', data]);
+    this.router.navigate([data], { relativeTo: this.route });
   }
 }

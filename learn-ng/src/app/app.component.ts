@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'learn-ng';
+  constructor(private router: Router, private route: ActivatedRoute) {}
+  ngOnInit() {
+    // On refresh Scenerio
+    this.router.navigate(['']);
+  }
 }
