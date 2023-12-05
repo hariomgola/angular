@@ -130,16 +130,40 @@ const componentInteraction = () => `
  - @Output(): To pass the value from child component to parent component.
 `;
 
-const RoutingInAngular = () =>`
+const RoutingInAngular = () => `
 # Routing in Angular
- - 
-`
+ - Routing help us to navigate within the 2 component in application which is not connected directly.
+ - Things Required to setup routing in Angular
+    * Step 1: we have to add the <base href="/"> tag in our index.html
+    * Step 2: we simply need to create app-routing.module.ts
+         - import app-routing.module.ts to app.module.ts and put it in import array.
+         - In app.routing.module.ts we simple need to pass the route in form of object
+            {
+              path:'userdefine path',
+              component:'component which above path is navigating to'
+            }
+         - last we simply need to use <router-outlet></router-outlet> where we want to show the route component
+
+# WildCart Route
+ - Wildcart route is used when the we simply configure the landing page of application or an error page in the application.
+ - Landing page - Execute when general url is trigerred in application
+      {
+        path:'',
+        component: landingPageComponent,
+      }
+ - Error page - Execute when user navigate to some route which is not configured or not available in application. 
+      {
+        path:'**',
+        component: errorPageCompoent,
+      }
+`;
 
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
   "Angular Architecture": AngularArchitecture,
   "Component Introcuction": ComponentIntrocuction,
   "Data Binding": DataBinding,
-  Directives: Directives,
+  "Directives in Angular": Directives,
   "Component Interaction": componentInteraction,
+  "Routing in Angular": RoutingInAngular,
 };
