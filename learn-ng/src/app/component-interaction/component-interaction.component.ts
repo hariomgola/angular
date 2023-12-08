@@ -9,7 +9,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
     </ng-container>
     <ng-container>
       <div>
-        <nav>
+        <nav class="navigation">
           <a class="button" (click)="onNavigatingRoute('parent')"
             >parent component</a
           >

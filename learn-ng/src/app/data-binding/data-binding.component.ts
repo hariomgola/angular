@@ -8,7 +8,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
       <h5>{{ componentHeader }}</h5>
     </ng-container>
     <ng-container>
-      <nav>
+      <nav class="navigation">
         <a class="button" (click)="onNavigatingRoute('string-interpolation')"
           >string-interpolation</a
         >

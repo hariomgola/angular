@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
       <h5>{{ componentHeader }}</h5>
     </ng-container>
     <ng-container>
-      <nav>
+      <nav class="navigation">
         <a class="button" (click)="onNavigatingRoute('ng-if')">ng-if</a>
         <a class="button" (click)="onNavigatingRoute('ng-if-else')"
           >ng-if-else</a
