@@ -27,6 +27,10 @@ import { StringInterpolationComponent } from './data-binding/string-interpolatio
 import { ParentCompComponent } from './component-interaction/parent-comp.component';
 import { ChildCompComponent } from './component-interaction/child-comp.component';
 
+// Component LifeCycle
+import { ParentLifecycleComponent } from './component-lifecycle/parent-lifecycle.component';
+import { ChildLifecycleComponent } from './component-lifecycle/child-lifecycle.component';
+
 // Routing Componet
 import { RoutingParentComponent } from './Routing/routing-parent.component';
 import { RoutingChildComponent } from './Routing/routing-child.component';
@@ -114,6 +118,10 @@ const routes: Routes = [
     component: RoutingComponent,
     children: RoutingComponentRoute,
   },
+  {
+    path: 'lifecycle',
+    component: ParentLifecycleComponent,
+  },
   ...errorPage,
 ];
 
@@ -139,6 +147,8 @@ export const ApplicationRoutingModule = [
   ComponentInteractionComponent,
   ParentCompComponent,
   ChildCompComponent,
+  ParentLifecycleComponent,
+  ChildLifecycleComponent,
   RoutingComponent,
   RoutingParentComponent,
   RoutingChildComponent,

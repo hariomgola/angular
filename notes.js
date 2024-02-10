@@ -45,7 +45,7 @@ const AngularArchitecture = () => `
    - @component, @Ngmodule is a decorater that will define the predefine functionality in angular
 `;
 
-const ComponentIntrocuction = () => `
+const ComponentIntroduction = () => `
 # Angular Component (ng g c server)
   - Component are the key feature of Angular. Whole Application are divided into smaller component to build up the whole application.
   - Root/App Component are the main component Which we gona add another component into this.
@@ -128,6 +128,78 @@ const componentInteraction = () => `
 # Component interaction
  - @Input(): To pass the value from child component to parent component.
  - @Output(): To pass the value from child component to parent component.
+
+# Component interaction using alais
+ - @Input('inData'): To pass the value from child component to parent component as inData.
+ - @Output('outData'): To pass the value from child component to parent component as outData.
+
+# Remebering 
+ - [] -> Input from parent component
+ - () -> Output from parent component
+
+ // Simple decorator I can directly access the property masterData and outputMasterData
+ @Input() masterData = '';
+ @Output() outputMasterData = new EventEmitter<any>();
+ // I can't directly access the property of _masterdata and _outputMasterdata
+ // I have to use Mdata and OmData for input and output respectiverly in parent component
+ @Input('Mdata') _masterData = '';
+ @Output('OmData') _outputMasterData = new EventEmitter<any>();
+
+# View encapsulation
+ - Its majourly used for applying css outside the component or dynamically injecetd component
+ - View Encapsulation has internally 3 properties 
+   # Emulated - By default.
+   # None - CSS will be applied globally.
+   # Native - CSS will be applied to shadow dom present inside the component.
+
+ @Component({
+  selector:'app-hari',
+  template:'<h3>App is working<h3>',
+  style: [''],
+  encapsulation: ViewEncapsulation.None
+ })
+
+# Local reference in template.
+ - Html Code
+  <input type="text" #nameInput>
+  <button (click)="onButtonClick(nameInput)">Add Name</button>
+ - TS Code
+  onButoonClick(nameInput: HTMLInputElement){
+    console.log('-=>',nameInput.value)
+  }
+
+# Local reference (ViewChild)
+ - Html Code
+  <input type="text" #textInput>
+ - TS code
+  import {ViewChild} from '@angular/core'
+  @ViewChild('textInput',{static:true}) textInput : ElementRef
+  ngonInit(){
+    console.log('----->',this.textInput)
+  }
+
+# ng-content (Important topics)
+ - Html Code
+  $ Parent Component
+    <app-child>
+      <p> Data from the parent component </p>
+    <app-child>
+
+  $ Child Component
+   <ng-content></ng-content>  // Will provide all the content present inside the app-child selector
+
+`;
+
+const componentLifeCycle = () => `
+# Angular LifeCycle
+  - ngOnChange             - Called after a bound input property changes.
+  - ngOnInit               - Called once the component is initialized. (Will run after the constructor)
+  - ngDoCheck              - Called during every change detection run.
+  - ngAfterContentInit     - Called After content (ng-content) has been projected into view.
+  - ngAfterContentChecked  - Called every time the  projected content has been checked.
+  - ngAfterViewInit        - Called after angular initialize the component view and children
+  - ngAfterViewChecked     - Called every time the view (and child views) has been checked.
+  - ngOnDestry             - Called once the component is about to be destroyed.
 `;
 
 const RoutingInAngular = () => `
@@ -161,9 +233,10 @@ const RoutingInAngular = () => `
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
   "Angular Architecture": AngularArchitecture,
-  "Component Introcuction": ComponentIntrocuction,
+  "Component Introduction": ComponentIntroduction,
   "Data Binding": DataBinding,
   "Directives in Angular": Directives,
   "Component Interaction": componentInteraction,
+  "Component LifeCycle": componentLifeCycle,
   "Routing in Angular": RoutingInAngular,
 };
