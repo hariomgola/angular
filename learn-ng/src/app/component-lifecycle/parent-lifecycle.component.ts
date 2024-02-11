@@ -3,7 +3,13 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'parent-lifecycle',
   template: `<child-lifecycle [parentCounter]="counter">
-    <p>This Tag is from parent Lifecycle Component</p>
+    <p
+      betterHighlighter
+      [defaultColor]="'orange'"
+      [highlightedColor]="'yellow'"
+    >
+      This Tag is from parent Lifecycle Component
+    </p>
   </child-lifecycle> `,
 })
 export class ParentLifecycleComponent {

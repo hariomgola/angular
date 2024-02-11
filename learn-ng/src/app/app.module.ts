@@ -8,8 +8,16 @@ import {
 } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { highlightingDirective } from './component-directives/highlighting.directive';
+import { BetterHighlighterDirective } from './component-directives/betterHighlighter.directive';
+
 @NgModule({
-  declarations: [AppComponent, ApplicationRoutingModule],
+  declarations: [
+    AppComponent,
+    ApplicationRoutingModule,
+    highlightingDirective,
+    BetterHighlighterDirective,
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

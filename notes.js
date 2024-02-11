@@ -100,17 +100,18 @@ const Directives = () => `
 # custome Directives
   - Will going to use in later section
 # Example of custom directives
---- TypeScript
-  @Directive({
-    selector:'[appTurnGreen]'
-  })
-  export class TurnGreenDirectives{
-  }
---- HTML
-<p appTurnGreen> Text is in Green color </p>
+  $ TypeScript
+    @Directive({
+      selector:'[appTurnGreen]'
+    })
+    export class TurnGreenDirectives{
+    }
+  $ HTML
+    <p appTurnGreen> Text is in Green color </p>
 # Build in Directives
   - *ngIf
   - *ngFor
+  - *ngSwitch
 
 # *ngif
  - Used to conditional view the tag on behalf of condition passed
@@ -122,7 +123,42 @@ const Directives = () => `
 # *ngFor
  - Used to iterate throught the list or an arrray
  - *ngFor="let item of Items; index as i"
-`;
+
+# Angular Directives
+ - Attribute Directives - Attribute directive are set on elements like Attribute.
+      - ngClass.
+      - ngStyle.
+      - ngModel.
+ - Structual Directives - Its the directives which will change the data around dom.
+      - *ngIf
+      - *ngFor
+      - *ngSwitch
+
+# Important notes
+ - Use of * in Structure Directives means that it will going to change the structure of the DOM.
+ - <p [ngClass]="{odd:num%2 !=0}"></p> - Here the odd class will only be applies if num will not retun 0 when divided by 2
+ - <p [ngStyle]="{backgroundColor: num%2==0 ? 'blue': 'red'}"></p> - Here odd will be red and even will be blue
+ - Command for creating custom directives ng g d highlighting
+
+# Creating a custom Directive (Attribute directive)
+
+ $ Typescript
+ import { Directive, ElementRef, OnInit } from '@angular/core';
+ @Directive({
+   selector: '[appHighlighting]',
+ })
+ export class highlightingDirective implements OnInit {
+   constructor(readonly elementRef: ElementRef) {}
+   ngOnInit(): void {
+     this.elementRef.nativeElement.style.backgroundColor = 'green';
+   }
+ }
+ # Html
+ <p appHighlighting>Directive Component</p>
+ 
+# Creating a custom Directive (Structural Directive)
+
+ `;
 
 const componentInteraction = () => `
 # Component interaction
@@ -188,6 +224,9 @@ const componentInteraction = () => `
   $ Child Component
    <ng-content></ng-content>  // Will provide all the content present inside the app-child selector
 
+# ContentChild
+ - Its main use is when paid is loaded we can't acccess of viewchild property on afterinit.
+ - But with the help of ContentChild we can directly access the content child.
 `;
 
 const componentLifeCycle = () => `
