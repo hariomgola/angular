@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 import { highlightingDirective } from './component-directives/highlighting.directive';
 import { BetterHighlighterDirective } from './component-directives/betterHighlighter.directive';
+import { UnlessDirective } from './component-directives/unless.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BetterHighlighterDirective } from './component-directives/betterHighlig
     ApplicationRoutingModule,
     highlightingDirective,
     BetterHighlighterDirective,
+    UnlessDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

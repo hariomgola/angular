@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'child-lifecycle',
   template: `<p>{{ counter }}</p>
-    <p>Child LifeCycle Component</p>
+    <p *unless="false">Child LifeCycle Component</p>
     <ng-content></ng-content>`,
 })
 export class ChildLifecycleComponent

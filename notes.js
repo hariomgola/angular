@@ -97,8 +97,16 @@ const Directives = () => `
 # Directives in Angular
   - Directives are instruction giving to the DOM.
   - Component are also a kind of directives since we are giving instruction to DOM.
-# custome Directives
-  - Will going to use in later section
+  - There is 2 type of Directives in Angular
+      $ Attribute Directive  - Didn't manipulate the dom
+            - ngClass
+            - ngStyle
+            - ngModel
+      $ Structural Directive - Directly manipulate the dom
+            - *ngIf
+            - *ngFor
+            - *ngSwitch
+
 # Example of custom directives
   $ TypeScript
     @Directive({
@@ -108,31 +116,6 @@ const Directives = () => `
     }
   $ HTML
     <p appTurnGreen> Text is in Green color </p>
-# Build in Directives
-  - *ngIf
-  - *ngFor
-  - *ngSwitch
-
-# *ngif
- - Used to conditional view the tag on behalf of condition passed
- - *ngIf="condition"
-# *ngIf-else
- - Used to conditional view the if and else tag work simpilar to programming if else
- - *ngIF="condition; else template_name"
- - ngStyle and ngClass also work on same manner.
-# *ngFor
- - Used to iterate throught the list or an arrray
- - *ngFor="let item of Items; index as i"
-
-# Angular Directives
- - Attribute Directives - Attribute directive are set on elements like Attribute.
-      - ngClass.
-      - ngStyle.
-      - ngModel.
- - Structual Directives - Its the directives which will change the data around dom.
-      - *ngIf
-      - *ngFor
-      - *ngSwitch
 
 # Important notes
  - Use of * in Structure Directives means that it will going to change the structure of the DOM.
@@ -153,12 +136,61 @@ const Directives = () => `
      this.elementRef.nativeElement.style.backgroundColor = 'green';
    }
  }
- # Html
+ $ Html
  <p appHighlighting>Directive Component</p>
  
 # Creating a custom Directive (Structural Directive)
+ - Temp Code to show how structural directives work
+    <p *ngIf="true">Some data</p>
+    $ Actual How Angular reads it
+    <ng-template [ngIf]="true">
+      <p> Some data</p>
+    </ng-template>
 
- `;
+ - Sample code for Custom Structural Directives
+  import {
+    Directive,
+    Input,
+    OnInit,
+    TemplateRef,
+    ViewContainerRef,
+  } from '@angular/core';
+  @Directive({
+    selector: '[unless]',
+  })
+  export class UnlessDirective implements OnInit {
+    @Input() set unless(condition: boolean) {
+      if (!condition) {
+        this.vcRef.createEmbeddedView(this.templateRef);
+      } else {
+        this.vcRef.clear();
+      }
+    }
+    constructor(
+      private templateRef: TemplateRef<any>,
+      private vcRef: ViewContainerRef
+    ) {}
+    ngOnInit() {}
+  }
+
+# UseCase of Structural Directives
+  *ngif
+   - Used to conditional view the tag on behalf of condition passed
+   - *ngIf="condition"
+  *ngIf-else
+   - Used to conditional view the if and else tag work simpilar to programming if else
+   - *ngIF="condition; else template_name"
+   - ngStyle and ngClass also work on same manner.
+  *ngFor
+   - Used to iterate throught the list or an arrray
+   - *ngFor="let item of Items; index as i"
+  *ngSwitch
+   - Used as same as programming switch
+    <div [ngSwitch]="'data'">
+       <p *ngSwitchCase="'data'">Data is present<p>
+       <p *ngSwitchDefault>No Data is Present</p> 
+    </div>
+`;
 
 const componentInteraction = () => `
 # Component interaction
