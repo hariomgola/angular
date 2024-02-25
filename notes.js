@@ -273,6 +273,39 @@ const componentLifeCycle = () => `
   - ngOnDestry             - Called once the component is about to be destroyed.
 `;
 
+const angularServices = () => `
+# Angular Services
+ - Angular Services is required to elimate the dublicasy of code.
+ - Angular uses hierarchical injector (dependency injector).
+
+# Dependency Injection
+ - As its name suggest dependency + injection
+ - Here dependency mean any service we are using in our component that means our component depends on that service.
+ - Injection means injecting the dependency into our class.
+
+# Sample Service Code
+
+export class ConsoleService {
+  log(data: any) {
+    console.log(' |> ',data);
+  }
+}
+
+# Component Code
+import {ConsoleService} from './consoleService.service'
+@Component({
+  selector:'',
+  providers:[ConsoleService] // here if we write the service it will create an instance of the service
+})
+constructor(readonly consoleService:ConsoleService)
+consoleService.log('console message');
+
+-- Advisable is to always use the services with injectable in angular 6+
+@Injectable({
+  providedIn: 'root'
+})
+`;
+
 const RoutingInAngular = () => `
 # Routing in Angular
  - Routing help us to navigate within the 2 component in application which is not connected directly.
@@ -286,6 +319,59 @@ const RoutingInAngular = () => `
               component:'component which above path is navigating to'
             }
          - last we simply need to use <router-outlet></router-outlet> where we want to show the route component
+         
+# Important points  
+ - routerLink='/user' - this is the absolute path
+ - routerLink='user' - this is relative path
+ - routerLink='../user' - this is the absolute path whic suggested to go only one level up
+
+# 1 -- Padding data through Route
+ - { path:'user/:id',component: userComponent }
+ - here id will be any varaiable adn can be easily retrieve with help of ActivatedRoute.
+ - Like wise we can also bind 2 or more data with it as mentioned below.
+ - { path:'user/:id/:name', component: userComponent }
+
+ ~ Code to retreive the data
+    constructor(private route: ActivatedRoute){ }
+    idData = this.route.snapshot.params['id']
+    nameData = this.route.snapshot.params['name']
+
+ ~ url - localhost:4200/users/1/hari   here id will be 1 and name will be hari
+ ~ Above mentioned code will not work when i added <a [routerLink]=['/user','100','Java']>Not Work<a/>
+ above scenerio will not work even though the url is changed because angular already loaded the component.
+ to make the above scenerio work we are going to use the observables.
+
+ ~ Code to retreive data using observables.
+   constructor(private route: ActivatedRoute){ 
+    this.route.params
+           .subscribe((params:Params)=>{
+            this.idData = params['id']
+            this.nameData = params['name']
+           })
+   }
+
+# 2 -- Passing data through Query parametes and fragments (?,&&)
+ - Using HTMl Code
+   <a
+     [routerLink]="['/users',5,'edit']"
+     [queryParams]="{isAdminUser:'false'}"
+     [fragment]= "loading"
+     ></a>
+ - Using TypeScript Code
+  this.route.navigate(['/users',5,'edit'], {queryParams:{isAdminUser:'false'}}, fragment:'loading')
+ 
+ - Url - localHost:4200/users/5/edit?isAdminUser=false#loading 
+
+ - Reteriving code to get the query params
+    constructor(private route:ActivatedRoute){}
+    ngOnInit(){
+      console.log(this.route.snapshot.queryParams)
+      console.log(this.route.snapshot.fragment)
+    }
+
+# queryParamsHandling
+ this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+  
 
 # WildCart Route
  - Wildcart route is used when the we simply configure the landing page of application or an error page in the application.
@@ -299,6 +385,10 @@ const RoutingInAngular = () => `
         path:'**',
         component: errorPageCompoent,
       }
+
+# Introduction to Route Guards
+ - Running some function when the component is going to execute. Example we want to provide some route to admin user or login user only.
+ - 
 `;
 
 module.exports = {
@@ -309,5 +399,6 @@ module.exports = {
   "Directives in Angular": Directives,
   "Component Interaction": componentInteraction,
   "Component LifeCycle": componentLifeCycle,
+  "Services in Angular": angularServices,
   "Routing in Angular": RoutingInAngular,
 };
