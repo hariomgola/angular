@@ -1,1 +1,34 @@
-<p>landing-page works!</p>
+<ng-container>
+  <p>Passing the data using route like /:lang</p>
+  <input
+    type="text"
+    placeholder="language"
+    (input)="onInputTextFunction('language', $event)"
+  />
+  <input
+    type="text"
+    placeholder="language type"
+    (input)="onInputTextFunction('languageType', $event)"
+  />
+  <button (click)="onPassingData()" class="btn">
+    Sending Data to code-Language
+  </button>
+</ng-container>
+
+<hr />
+
+<ng-container>
+  <p>Passing the data Using Query params check url after ?</p>
+  <input
+    type="text"
+    placeholder="name"
+    (input)="onInputTextFunctionQueryParams($event)"
+  /><button (click)="onPassingDataQueryParams()" class="btn">
+    Sending Data through Query Params
+  </button>
+</ng-container>
+
+<hr />
+
+<pre> Routing Code </pre>
+<router-outlet></router-outlet>
