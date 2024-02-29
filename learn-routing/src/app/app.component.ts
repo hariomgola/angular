@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AuthService } from './services/auth.service';
 
 // importing landing page component
 
@@ -14,4 +15,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 })
 export class AppComponent {
   title = 'learn-routing';
+  constructor(private authService: AuthService) {
+    // Used to Do User Login
+    this.authService.loginUser();
+  }
 }
