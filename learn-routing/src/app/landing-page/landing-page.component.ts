@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'ng-landing-page',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css',
 })
@@ -14,6 +15,7 @@ export class LandingPageComponent {
     langType: '',
   };
   queryParamsData = '';
+  stateData: string = '';
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   onInputTextFunction(type: string, event: Event) {
@@ -53,5 +55,11 @@ export class LandingPageComponent {
     //   queryParams: { dataName: this.queryParamsData },
     //   fragment: 'loading',
     // });
+  }
+
+  onPassingNavigateUrl() {
+    this.router.navigateByUrl('/code-launguage-navigatebyurl', {
+      state: { data: this.stateData },
+    });
   }
 }

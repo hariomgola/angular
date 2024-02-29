@@ -30,5 +30,15 @@
 
 <hr />
 
+<ng-container>
+  <p>Passing the data Using Navigate by url</p>
+  <textarea [(ngModel)]="stateData" rows="4" cols="50"></textarea>
+  <button (click)="onPassingNavigateUrl()">
+    Sending Data through Navigate by Url
+  </button>
+</ng-container>
+
+<hr />
+
 <pre> Routing Code </pre>
 <router-outlet></router-outlet>
