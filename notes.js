@@ -391,6 +391,22 @@ const RoutingInAngular = () => `
  - 
 `;
 
+const GuardInAngular = () => `
+# Angular Guard
+ - Angular Guard is used to restrict the user from entering into certain routes which the user don't have permission to it.
+ - Its mainly for 3 type
+   ~ canActivate       - Used the Protect the route when used
+   ~ canActivateChild  - Used to protect only the child route when used. Parent route will be free to roam.
+   ~ canDeactivate     - Used to check if user is ready to move to another route or not. 
+`;
+
+const FormAngular = () => `\
+# Angular Forms
+ - Angular User 2 approach to interact and work with form 
+ - Template Driven - angular infers the form object from the dom.
+ - Reactive - Form is created programmatically and synchronized with the dom.
+`;
+
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
   "Angular Architecture": AngularArchitecture,
@@ -401,4 +417,6 @@ module.exports = {
   "Component LifeCycle": componentLifeCycle,
   "Services in Angular": angularServices,
   "Routing in Angular": RoutingInAngular,
+  "Guards in Angular": GuardInAngular,
+  "Forms in Angular": FormAngular,
 };
