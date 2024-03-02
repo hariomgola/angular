@@ -1,1 +1,54 @@
-<p>r-form works!</p>
+<form [formGroup]="signUpForm" (ngSubmit)="onFormSubmit()">
+  <div formGroupName="userData">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" [formControlName]="'username'" />
+      <span
+        *ngIf="
+          !signUpForm.get('userData.username')?.valid &&
+          signUpForm.get('userData.username')?.touched
+        "
+      >
+        <span
+          *ngIf="signUpForm.get('userData.username')?.errors?.['nameIsForbidden']"
+        >
+          User name not allowed !</span
+        >
+        <span *ngIf="signUpForm.get('userData.username')?.errors?.['required']">
+          Please Enter a valid username !</span
+        >
+      </span>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" [formControlName]="'email'" />
+      <span
+        *ngIf="
+          !signUpForm.get('userData.email')?.valid &&
+          signUpForm.get('userData.email')?.touched
+        "
+      >
+        Please Enter a valid email !
+      </span>
+    </div>
+  </div>
+
+  <div *ngFor="let gender of genders">
+    <label>
+      <input type="radio" [value]="gender" [formControlName]="'gender'" />{{
+        gender
+      }}
+    </label>
+  </div>
+
+  <div formArrayName="hobbies">
+    <h4>Hoobies</h4>
+    <button type="button" (click)="onAddHobbie()">Add Hobby</button>
+    <div *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+      <input type="text" [formControlName]="i" />
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!signUpForm.valid">Submit</button>
+</form>

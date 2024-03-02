@@ -426,7 +426,15 @@ const FormAngular = () => `
   
 # State in Template Driven Forms
  - ngModel when putten in any tag. It will registered the property of an form
- - ngModelGroup - Help to group the propertied inside the conatiner or in the dic tag
+ - ngModelGroup - Help to group the propertied inside the conatiner or in the div tag
+
+# Reactive Form
+ - Form is created dynamically in typescript file all logic and validation done here.
+ - Reactive form follows the below mentioned hierachy in html template.
+     > formGroup
+        > formGroupName
+            > formControlName
+     > formArrayName (important)
 `;
 
 module.exports = {
