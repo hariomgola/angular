@@ -400,11 +400,33 @@ const GuardInAngular = () => `
    ~ canDeactivate     - Used to check if user is ready to move to another route or not. 
 `;
 
-const FormAngular = () => `\
+const FormAngular = () => `
 # Angular Forms
  - Angular User 2 approach to interact and work with form 
- - Template Driven - angular infers the form object from the dom.
- - Reactive - Form is created programmatically and synchronized with the dom.
+ - Template Driven - angular infers the form object from the dom (Mainly written in template).
+ - Reactive - Form is created programmatically and synchronized with the dom (Mainly written in ts file).
+
+# Template Driven Froms
+ - In Template driven form approach we are registering all the property ans code directly in html.
+ - we are making user of ngModel and name="property value", key value which we need to have access for.
+ - Submit should be pass like this - (ngSubmit)="onSubmitTeamplateDrivenForm(f)" #f="ngForm" in form level
+ - Type Script code getting the value should be 
+    onSubmitTeamplateDrivenForm(form: NgForm) {
+      console.log('|> Angular template driven form value - ', form['value']);
+    }
+ - Please refer to the t-form.component files in ng-learn for refernce
+ - We are also access the form without even passing the form refernce on submit with the help of viewChild.
+   @ViewChild('f') signUpForm?: NgForm;
+   onSubmitByViewChild() {
+      console.log(
+        '|> Angular template driven form with help of view child - ',
+        this.signUpForm?.['value']
+      );
+    }
+  
+# State in Template Driven Forms
+ - ngModel when putten in any tag. It will registered the property of an form
+ - ngModelGroup - Help to group the propertied inside the conatiner or in the dic tag
 `;
 
 module.exports = {
