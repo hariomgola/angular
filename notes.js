@@ -437,6 +437,11 @@ const FormAngular = () => `
      > formArrayName (important)
 `;
 
+const PipeInAngular = () => `
+# Pipe
+ - Pipe are feature which basically allows the you to transfer the output into teamplate
+`;
+
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
   "Angular Architecture": AngularArchitecture,
@@ -449,4 +454,5 @@ module.exports = {
   "Routing in Angular": RoutingInAngular,
   "Guards in Angular": GuardInAngular,
   "Forms in Angular": FormAngular,
+  "Pipes in Angular": PipeInAngular,
 };
