@@ -6,3 +6,11 @@
     Device Name : {{ device.name }}
     Stock       :{{ device.value }}
 </pre>
+
+<div>
+  <h4>Example of async pipe</h4>
+  <!-- Without async pipe -->
+  <p>|> {{ apiCallData }}</p>
+  <!-- With async pipe -->
+  <p>|> {{ apiCallData | async }}</p>
+</div>

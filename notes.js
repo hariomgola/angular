@@ -439,7 +439,12 @@ const FormAngular = () => `
 
 const PipeInAngular = () => `
 # Pipe
- - Pipe are feature which basically allows the you to transfer the output into teamplate
+ - Pipe are feature which basically allows the you to transfer the output into template
+ - Pipe are of 2 type on basis of creation and 2 type on basis of functionality.
+   > Build in pipe
+   > Custom pipe
+   > pure pipe
+   > impure pipe
 `;
 
 module.exports = {
