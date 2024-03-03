@@ -1,0 +1,8 @@
+<h4>Angular custom pipe</h4>
+<pre>
+    short custom pipe : {{ someData | short : 4 }}
+</pre>
+<pre *ngFor="let device of deviceData | filter : 10 : 'value'">
+    Device Name : {{ device.name }}
+    Stock       :{{ device.value }}
+</pre>
