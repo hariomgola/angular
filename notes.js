@@ -447,6 +447,8 @@ const PipeInAngular = () => `
    > impure pipe
 `;
 
+const HttpAngular = () => ``;
+
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
   "Angular Architecture": AngularArchitecture,
@@ -460,4 +462,5 @@ module.exports = {
   "Guards in Angular": GuardInAngular,
   "Forms in Angular": FormAngular,
   "Pipes in Angular": PipeInAngular,
+  "Http in Angular": HttpAngular,
 };
