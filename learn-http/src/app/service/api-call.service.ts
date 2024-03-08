@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, throwError } from 'rxjs';
 
 const BASE_URL = 'http://localhost:3000';
@@ -50,10 +50,14 @@ export class ApiCallService {
     );
   }
   postApiData(payload?: any) {
-    return this.http.post(this.getUrlChange('POST'), payload).pipe(
-      map((responseData) => responseData),
-      catchError((errorData) => throwError(() => errorData))
-    );
+    return this.http
+      .post(this.getUrlChange('POST'), payload, {
+        headers: new HttpHeaders({ 'custom-header': 'connect-database' }),
+      })
+      .pipe(
+        map((responseData) => responseData),
+        catchError((errorData) => throwError(() => errorData))
+      );
   }
   putApiData(payload?: any) {
     return this.http.put(this.getUrlChange('PUT'), payload).pipe(
