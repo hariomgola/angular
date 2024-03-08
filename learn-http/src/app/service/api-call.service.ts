@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, map, throwError } from 'rxjs';
 
 const BASE_URL = 'http://localhost:3000';
@@ -50,9 +50,21 @@ export class ApiCallService {
     );
   }
   postApiData(payload?: any) {
+    /**
+     * Code to Add multiple params
+      
+      let searchParams = new HttpParams();
+      searchParams = searchParams.append('data', 'local-express');
+      searchParams = searchParams.append('value', 'search-express');
+
+      pass searchParams directly into the params
+     */
     return this.http
       .post(this.getUrlChange('POST'), payload, {
         headers: new HttpHeaders({ 'custom-header': 'connect-database' }),
+        params: new HttpParams().set('data', 'local-express'),
+        observe: 'response', // this will give you full http response by default this set to body
+        responseType: 'json', // default type is json only we can change to test and blob depending on server
       })
       .pipe(
         map((responseData) => responseData),

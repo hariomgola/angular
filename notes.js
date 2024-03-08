@@ -447,7 +447,10 @@ const PipeInAngular = () => `
    > impure pipe
 `;
 
-const HttpAngular = () => ``;
+const HttpAngular = () => `
+# Interceptors
+ - 
+`;
 
 module.exports = {
   "Introduction To Angular": IntroductionToAngular,
