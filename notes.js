@@ -448,8 +448,21 @@ const PipeInAngular = () => `
 `;
 
 const HttpAngular = () => `
+# Http call
+ - Angular can make http or https call with the help of provideHttpClient()
+ - provideHttpClient() client need to be imported from angular at - app.config.ts.
+ - Please go through the code at file to see how http works - api-call.service.ts.
+
 # Interceptors
- - 
+ - Intercaptor is used to mainupulate the request or done something just before the service call will be done.
+ - When Using the interceptor above configuration need to done at app.config.ts
+
+      provideHttpClient(withInterceptorsFromDi()), // imported from angular
+      {
+        provide: HTTP_INTERCEPTORS,   // imported from angular
+        useClass: ApiCallInterceptorsService,  // custom created interceptop (api-call-interceptors.service.ts)
+        multi: true, // bu default need to put as true
+      },
 `;
 
 module.exports = {
