@@ -1,4 +1,28 @@
-<div>
-  <h3>App-Component</h3>
-  <button (click)="onApiCall()">API Call</button>
-</div>
+<ng-container>
+  <button (click)="onApiCall()">Load User Data</button>
+  <div *ngFor="let _data of userData">
+    <ng-container
+      [ngTemplateOutlet]="user_table"
+      [ngTemplateOutletContext]="{ _data: _data }"
+    >
+    </ng-container>
+  </div>
+</ng-container>
+
+<!-- Table Data -->
+<ng-template #user_table let-_data="_data">
+  <table>
+    <!-- Header -->
+    <!-- <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>User Name</th>
+    </tr> -->
+    <!-- Body -->
+    <tr>
+      <td>{{ _data?.id }}</td>
+      <td>{{ _data?.name }}</td>
+      <td>{{ _data?.username }}</td>
+    </tr>
+  </table>
+</ng-template>
